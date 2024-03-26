@@ -77,14 +77,6 @@ def ocr_image(captured_image):
     kWh = None
     if text_array:
         try:
-            # # Mencari indeks dengan panjang terpanjang
-            # max_length_index = max(range(len(text_array)), key=lambda i: len(text_array[i]))
-
-            # # Mencetak indeks dan kata dengan panjang terpanjang
-            # print("Index dengan panjang terpanjang:", max_length_index)
-            # print("Kata dengan panjang terpanjang:", text_array[max_length_index])
-            # print("index yang terpanjang", len(text_array[max_length_index]))
-
             # Mencari total kwh
             index_length_5 = [i for i, word in enumerate(text_array) if len(word) == 5]
             if index_length_5:
@@ -111,8 +103,6 @@ def ocr_image(captured_image):
                 send_data(main_collection,customerId,total_kwh)
             else:
                 print("Terjadi kesalahan saat melakukan ekstraksi gambar")
-            # kWh = int(text_array[max_length_index])
-            # send_data(main_collection,customerId,kWh)
         except ValueError:
             print("Teks yang terbaca tidak valid untuk diubah menjadi bilangan bulat.")
     else:
